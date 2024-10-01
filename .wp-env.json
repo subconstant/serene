@@ -1,0 +1,12 @@
+{
+  "themes": [
+    "."
+  ],
+  "mappings": {
+    "/wp-content/themes/serene": "."
+  },
+  "config": {
+    "WP_DEBUG": true,
+    "SCRIPT_DEBUG": true
+  }
+}

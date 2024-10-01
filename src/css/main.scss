@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+  html {
+    @apply font-display;
+    text-transform: uppercase !important;
+  }
+
+  html > * {
+    @apply transition-all duration-100;
+  }
+
+  a {
+    @apply hover:opacity-50;
+  }
+
+  ul, ol {
+    list-style: revert;
+    @apply pl-5;
+  }
+
+  button {
+    @apply border border-black rounded p-2 uppercase;
+  }
+}

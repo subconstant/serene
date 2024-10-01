@@ -1,0 +1,12 @@
+{% if menu %}
+    <div class="flex flex-row gap-5 sm:flex-column">
+        {% for item in items %}
+            <div class="{{ item.classes|join(' ') }}">
+                <a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+                {% include 'partials/menu.twig' with {
+                    items: item.children
+                } %}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

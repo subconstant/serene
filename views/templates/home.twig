@@ -1,0 +1,58 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+
+	<section
+		class="border-black border-b pb-10">
+
+		<!--
+				  for using content from the /home page:
+				  { { home_page.content } }
+				  -->
+
+		<div class="md:grid grid-cols-2 gap-5">
+			<div class="">
+				<p>
+					custom website starter. see
+					<a class="underline" href="{{ temp_dir_uri }}/README.md">README.md</a>
+					<br/>
+					{{ theme_options.home_text }}
+				</p>
+			</div>
+			<div class="mt-10 md:m-0">
+
+				<div x-data="{ open: false }">
+					<button @click="open = ! open">Alpine.js test</button>
+
+					<div x-show="open" x-transition class="mt-5">
+              Working!
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+
+	<section class="pt-5">
+		{% for post in posts %}
+			<p>
+				<a class="underline" href="{{ post.link }}">{{ post.title }}</a>
+			</p>
+		{% endfor %}
+
+    {% for project in projects %}
+			<p>
+				<a class="underline" href="{{ project.link }}">{{ project.title }}</a>
+			</p>
+		{% endfor %}
+	</section>
+
+	{% include 'partials/pagination.twig' with {
+        pagination: posts.pagination({
+            show_all: false,
+            mid_size: 3,
+            end_size: 2
+        })
+    } %}
+{% endblock %}
