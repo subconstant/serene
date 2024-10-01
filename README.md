@@ -4,6 +4,7 @@ personal wordpress scaffold, based on timber/starter-theme + carbon fields & tai
 composer install
 npm install
 npx mix / npx mix watch / npm run prod (or npx mix --production) / npm run pack
+wp-env start (if wp-env installed)
 ```
 
 ```npm run pack``` builds & copies files to /pack, excluding node_modules, source css&js, configs, etc.; needs bash to run
