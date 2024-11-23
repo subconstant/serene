@@ -30,6 +30,9 @@
 
 		</section>
 
+    {% block footer %}
+		  {% include 'partials/footer.twig' %}
+	  {% endblock %}
 		{{ function('wp_footer') }}
 		{% do action('get_footer') %}
 	</body>

@@ -8,8 +8,22 @@ module.exports = {
   theme: {
     fontFamily: {
       'display': 'IBM Plex Mono, Helvetica, Arial, sans-serif',
+      'comic': 'Comic Sans MS'
     },
-    extend: {},
+    extend: {
+      colors: {
+        'primary': '#1703fc',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'unset'
+          }
+        }
+      }
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
 };

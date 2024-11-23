@@ -17,14 +17,22 @@ class SiteSetup extends Site
 		parent::__construct();
 	}
 
-	public function register_taxonomies()
-	{
-	}
-
 	public function add_to_context($context)
 	{
-		$context['menu']  = Timber::get_menu();
 		$context['site']  = $this;
+    $context['temp_dir_uri'] = get_template_directory_uri();
+
+    /* *!* Get  menus
+    $context['menu']  = Timber::get_menu();
+
+    *!* For multiple:
+    $context['headermenu'] = Timber::get_menu('headermenu');
+    $context['footermenu'] = Timber::get_menu('footermenu');
+    */
+
+    // *!* Query CPT
+    // $context['projects'] = Timber::get_posts( [ 'post_type' => 'project' ] );
+
 
 		return $context;
 	}
@@ -36,11 +44,10 @@ class SiteSetup extends Site
 
 		add_theme_support('title-tag');
 		add_theme_support('post-thumbnails');
+    add_theme_support('custom-spacing');
+    add_theme_support('align-wide');
+    add_theme_support( 'editor-styles');
 
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
 		add_theme_support(
 			'html5',
 			array(
@@ -50,6 +57,8 @@ class SiteSetup extends Site
 				'caption',
 			)
 		);
+
+    add_theme_support('menus');
 
 		/*
 		 * Enable support for Post Formats.
@@ -69,8 +78,6 @@ class SiteSetup extends Site
 			)
 		);
     */
-
-		add_theme_support('menus');
 	}
 
 	/**
@@ -85,8 +92,7 @@ class SiteSetup extends Site
 		 * @link https://twig.symfony.com/doc/3.x/functions/template_from_string.html
 		 */
 		// $twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-
-		$twig->addFilter(new \Twig\TwigFilter('myfoo', [$this, 'myfoo']));
+		// $twig->addFilter(new \Twig\TwigFilter('myfoo', [$this, 'myfoo']));
 
 		return $twig;
 	}

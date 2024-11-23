@@ -2,26 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-  html {
-    @apply font-display;
-    text-transform: uppercase !important;
-  }
+/* use custom margins for wide and fullwidth blocks and paragraphs instead of gutenberg condent width */
+:root{
+  --gb-margin-x-center: 0;
+  --gb-margin-x-wide: 0;
+}
 
-  html > * {
-    @apply transition-all duration-100;
-  }
-
+@layer components{
   a {
-    @apply hover:opacity-50;
+    @apply hover:opacity-50 transition-opacity;
   }
 
   ul, ol {
     list-style: revert;
     @apply pl-5;
   }
+}
 
-  button {
-    @apply border border-black rounded p-2 uppercase;
+@layer base{
+  html {
+    @apply font-display;
+    text-transform: uppercase !important;
+  }
+
+  /* tw typography */
+  div[class*="wp-block-"] p{
+    @apply prose;
+  }
+
+  .gb-content > p,[class*="wp-block-"]{
+    margin: 0 auto;
+  }
+
+  /* custom gutenberg wide/fullwidth margins */
+  .gb-content > p,[class*="wp-block-"]:not(.alignwide, .alignfull) {
+    @apply lg:mx-[var(--gb-margin-x-center)];
+  }
+
+  .gb-content > .alignwide{
+    @apply lg:mx-[var(--gb-margin-x-wide)];
   }
 }

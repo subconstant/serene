@@ -3,7 +3,7 @@ add_action('init', 'register_custom_post_types');
 
 function register_custom_post_types() {
 
-    //CPT 'project' start
+    /*
     register_post_type('project', array(
       'labels'             => array(
           'name'               => _x('Projects', 'post type general name', 'serene'),
@@ -35,7 +35,7 @@ function register_custom_post_types() {
       'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt'),
       'show_in_rest'       => true
     ));
-    //CPT 'project' end
+    */
 
 
 }

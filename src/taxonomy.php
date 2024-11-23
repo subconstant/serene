@@ -4,7 +4,7 @@ add_action( 'init', 'register_custom_taxonomies' );
 
 function register_custom_taxonomies() {
 
-    // Start taxonomy Publisher for CPT Projects
+    /* Taxonomy Publisher for CPT Projects
     register_taxonomy( 'publisher', array( 'project' ), array(
         'labels' => array(
             'name'              => _x( 'Publishers', 'taxonomy general name', 'serene' ),
@@ -23,6 +23,6 @@ function register_custom_taxonomies() {
         'rewrite' => array( 'slug' => 'publisher' ),
         'show_in_rest' => true,
     ) );
-    // End taxonomy
+    */
 
 }

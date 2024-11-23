@@ -12,19 +12,32 @@ require_once __DIR__ . '/src/util/nocomment.php';
 require_once __DIR__ . '/src/meta.php';
 require_once __DIR__ . '/src/util/timber_cf.php';
 
-// load custom post types
+// custom post types
 require_once __DIR__ . '/src/types.php';
 
-// load custom taxonomies
+// custom taxonomies
 require_once __DIR__ . '/src/taxonomy.php';
 
 // load built css/js
 add_action('wp_enqueue_scripts', function() {
+  wp_deregister_script( 'jquery' );
   wp_enqueue_style('styles', get_template_directory_uri() . '/build/main.css', [], false);
   wp_enqueue_script('vendor-js', get_template_directory_uri() . '/build/vendor.js', [], 'false', true);
   wp_enqueue_script('manifest-js', get_template_directory_uri() . '/build/manifest.js', [], 'false', true);
   wp_enqueue_script('theme-js', get_template_directory_uri() . '/build/main.js', [], 'false', true);
 });
+
+//gutenberg specifics
+add_editor_style( '/build/editor.css' );
+function serene_gutenberg_scripts() {
+  wp_enqueue_script('editor-js', get_template_directory_uri() . '/src/js/editor.js', array( 'wp-blocks' ), false, true);
+  wp_enqueue_script('gutenberg-js', get_template_directory_uri( ) . '/src/util/gutenberg_hook.js',
+		array( 'wp-block-editor' ),
+	);
+}
+add_action('enqueue_block_editor_assets', 'serene_gutenberg_scripts');
+
+
 
 // disable theme directory updates + customize page
 add_filter('site_transient_update_themes', function($transient) {

@@ -1,9 +1,9 @@
 .vscode
-/composer.lock
+composer.lock
 /vendor/
 /wordpress/
 /node_modules/
 /build/
 package-lock.json
 serene.code-workspace
-/pack
+theme.json

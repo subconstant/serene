@@ -1,13 +1,14 @@
-personal wordpress scaffold, based on timber/starter-theme + carbon fields & tailwind, alpinejs using laravel mix
+personal wordpress scaffold, based on timber/starter-theme.
+also includes:
+* tailwind with theme.json integration
+* alpine, lenis, swiperjs
+* gutenberg css and js + editor hook
+* cpt/taxonomy/meta (with carbon fiels) & other snippets
 
 ```
-composer install
-npm install
-npx mix / npx mix watch / npm run prod (or npx mix --production) / npm run pack
-wp-env start (if wp-env installed)
+composer install && npm i
+npx mix / npm run prod
 ```
-
-```npm run pack``` builds & copies files to /pack, excluding node_modules, source css&js, configs, etc.; needs bash to run
 
 useful:
 - [installing composer](https://getcomposer.org/download/)
@@ -18,5 +19,8 @@ useful:
 - [alpinejs docs](https://alpinejs.dev/start-here)
 - [carbon fields docs](https://docs.carbonfields.net/)
 - [wp theme functions](https://developer.wordpress.org/themes/basics/theme-functions/)
+- [theme.json reference](https://developer.wordpress.org/block-editor/reference-guides/theme-json-reference/theme-json-living/)
+- [Mastering theme.json: You might not need CSS](https://developer.wordpress.org/news/2024/10/17/mastering-theme-json)
+- [Styling sections, nested elements, and more with Block Style Variations in WordPress 6.6](https://developer.wordpress.org/news/2024/06/21/styling-sections-nested-elements-and-more-with-block-style-variations-in-wordpress-6-6/#customizing-block-style-variations-via-theme-json)
 
 tested on [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install)
