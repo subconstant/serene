@@ -25,6 +25,7 @@ add_action('wp_enqueue_scripts', function() {
   wp_enqueue_script('vendor-js', get_template_directory_uri() . '/build/vendor.js', [], 'false', true);
   wp_enqueue_script('manifest-js', get_template_directory_uri() . '/build/manifest.js', [], 'false', true);
   wp_enqueue_script('theme-js', get_template_directory_uri() . '/build/main.js', [], 'false', true);
+  wp_localize_script('theme-js', 'themeData', ['themeUrl' => get_template_directory_uri(),]);
 });
 
 //gutenberg specifics
@@ -36,8 +37,6 @@ function serene_gutenberg_scripts() {
 	);
 }
 add_action('enqueue_block_editor_assets', 'serene_gutenberg_scripts');
-
-
 
 // disable theme directory updates + customize page
 add_filter('site_transient_update_themes', function($transient) {

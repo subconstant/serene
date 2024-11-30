@@ -1,9 +1,9 @@
 personal wordpress scaffold, based on timber/starter-theme.
 also includes:
 * tailwind with theme.json integration
-* alpine, lenis, swiperjs
+* alpine, lenis, swiperjs, i18next, scroll animations
 * gutenberg css and js + editor hook
-* cpt/taxonomy/meta (with carbon fiels) & other snippets
+* cpt/taxonomy/meta (with carbon fiels) & other utlities
 
 ```
 composer install && npm i

@@ -8,20 +8,15 @@
 		{# For using content from the front page: {{ home_page.content }} #}
 
 		<div class="md:grid grid-cols-2 gap-5">
-			<div class="">
-				<p>
-					custom website starter
-				</p>
+			<div>
+				<p>custom website starter</p>
 			</div>
-			<div class="mt-10 md:m-0">
 
-				<div x-data="{ open: false }">
-          see <a class="underline" href="{{ temp_dir_uri }}/README.md">README.md</a>
-				</div>
-
-
+			<div>
+				<p>see <a class="underline" href="{{ temp_dir_uri }}/README.md">README.md</a></p>
 			</div>
 		</div>
+
 	</section>
 
 	<section class="pt-5">
@@ -45,5 +40,6 @@
             end_size: 2
         })
     } %}#}
+    
 
 {% endblock %}
